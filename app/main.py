@@ -3,7 +3,6 @@ from typing import List, Dict
 from datetime import datetime
 
 app = FastAPI()
-
 data_store: List[Dict] = []
 
 @app.post("/receive")
