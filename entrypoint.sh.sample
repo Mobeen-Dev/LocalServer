@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Start FastAPI app
+uvicorn app.main:app --host 0.0.0.0 --port 8000 &
+
+# Wait a moment for FastAPI to fully start
+sleep 3
+
+# Authenticate ngrok (replace <your-ngrok-authtoken> with your actual ngrok token)
+ngrok config add-authtoken <your-ngrok-authtoken>
+
+
+# Run ngrok to expose the local FastAPI app
+ngrok http --domain=<your-ngrok-domain> 8000
